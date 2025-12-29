@@ -1,73 +1,47 @@
-Intent Classification Using Machine Learning (NLP)
-Overview
+# Intent Classification using Machine Learning (NLP)
 
-This project implements a machine learning–based intent classification system using classical Natural Language Processing techniques.
-The goal is to map user utterances (text) to predefined intent categories, forming the foundation for dialogue systems, chatbots, and human–robot interaction pipelines.
+This repository implements a **machine learning–based intent classification system** using classical Natural Language Processing techniques.  
+The project is designed as a **clean, minimal, and explainable baseline** for dialogue systems, chatbots, and human–robot interaction pipelines.
 
-The project is implemented and demonstrated entirely in a Jupyter Notebook, focusing on clarity, reproducibility, and explainability.
+The implementation is provided in a **Jupyter Notebook** for transparency and reproducibility.
 
-Problem Statement
+---
 
-Given a short user utterance in natural language, predict the intent behind the utterance (e.g., greeting, help request, annoyance).
+## Problem Statement
 
-This is a supervised multi-class classification problem.
+Given a user utterance in natural language, predict the **intent** behind the utterance.
 
-Dataset
+This is formulated as a **supervised multi-class text classification problem**.
 
-The dataset consists of labeled text samples with corresponding intent classes.
+---
+
+## Dataset
+
+The dataset consists of short text utterances labeled with intent classes.
 
 Example:
 
-Text	Intent
-"hello there"	greeting
-"can you help me"	help
-"stop talking"	annoyance
+| Text              | Intent     |
+|-------------------|------------|
+| hello there       | greeting   |
+| can you help me   | help       |
+| stop talking      | annoyance  |
 
-The dataset is intentionally lightweight to emphasize the end-to-end ML pipeline rather than dataset size.
+The dataset is intentionally lightweight to emphasize the **end-to-end ML pipeline** rather than dataset scale.
 
-Approach
-1. Text Preprocessing
+---
 
-Lowercasing
+## Methodology
 
-Tokenization (handled implicitly by vectorizer)
+### Text Representation
+- TF-IDF (Term Frequency–Inverse Document Frequency)
 
-Conversion of text into numerical features
+### Model
+- Logistic Regression
 
-2. Feature Extraction
+The model is implemented using a **Scikit-learn Pipeline**, combining feature extraction and classification into a single workflow.
 
-TF-IDF (Term Frequency–Inverse Document Frequency)
-Converts text into sparse numerical vectors that capture term importance.
+---
 
-3. Model
+## Pipeline Overview
 
-Logistic Regression
-
-Simple
-
-Interpretable
-
-Strong baseline for text classification
-
-The model is trained using a Scikit-learn Pipeline, combining feature extraction and classification.
-
-Model Pipeline
-Raw Text
-   ↓
-TF-IDF Vectorization
-   ↓
-Logistic Regression Classifier
-   ↓
-Predicted Intent + Confidence
-
-Evaluation
-
-Model performance can be evaluated using:
-
-Accuracy
-
-Precision, Recall, F1-score
-
-Confusion Matrix
-
-(For small datasets, evaluation is illustrative rather than statistically conclusive.
